@@ -7,3 +7,42 @@ l'équipe de données décide de commencer par les données de collisions de Los
 modèles autour de certaines caractéristiques démographiques des conducteurs. Cela tentera de valider certains des plans 
 de l'équipe marketing, tels que se concentrer sur les jeunes conducteurs, ainsi que certaines des fonctionnalités de 
 l'équipe d'ingénierie qui sont en cours de développement.
+
+Pour cet exemple, nous allons utiliser le terminal Cloud Shell et l'outil de ligne de commande bq pour charger des données. Nous allons utiliser les données de collision de trafic de Los Angeles (https://data.lacity.org/Public-Safety/Traffic-Collision-Data-from-2010-to-Present/d5tf-ez2w) fournies par le catalogue de données ouvertes de Los Angeles (https://data.lacity.org/). Chargeons ces données dans BigQuery pour voir si cet ensemble de données offre des informations utiles pour notre scénario. Les données brutes sont disponibles au lien précédent. Pour plus de commodité, nous les avons également disponibles dans ch4/archive.zip dans le référentiel GitHub de ce livre : https://github.com/PacktPublishing/Data-Exploration-and-Preparation-with-BigQuery/tree/main/ch4. L'outil de ligne de commande bq fournit une approche terminale pour interagir avec BigQuery et vos ressources Google Cloud. Tout ce que vous faites avec l'outil bq, vous pouvez également le faire avec l'API REST ou dans la console Cloud :
+
+1. Ouvrez Cloud Shell dans votre navigateur en visitant https://console.cloud.google.com/cloudshell.
+2. Autorisez Cloud Shell et assurez-vous que vous êtes dans le projet correct. Sélectionnez également la zone régionale par défaut pour vos ressources :
+   ```sh
+   gcloud init
+   ```
+3. Une fois votre projet sélectionné, clonez le référentiel GitHub :
+   ```sh
+   git clone https://github.com/mtaileb/GCP/BigQuery
+   ```
+4. Accédez au dossier contenant l'ensemble de données sur les collisions de trafic :
+   ```sh
+   cd mtaileb/GCP/BigQuery/TP1
+   ```
+5. Décompressez le fichier archive.zip :
+   ```sh
+   unzip traffic-collision-data-from-2010-to-present.zip
+   ```
+6. Prévisualisez les données dans le fichier qui vient d'être extrait. Utilisez la barre d'espace pour prévisualiser les données et utilisez Q pour quitter :
+   ```sh
+   zless traffic-collision-data-from-2010-to-present.csv
+   ```
+7. Créez maintenant un ensemble de données et une table pour nos données :
+   ```sh
+   bq mk collisions
+   bq mk -t collisions.data
+   ```
+8. Chargez les données dans la table :
+   ```sh
+   bq load --source_format=CSV --autodetect collisions.data traffic-collision-data-from-2010-to-present.csv
+   ```
+9. Examinez le schéma et les métadonnées de la table :
+   ```sh
+   bq show collisions.data
+   ```
+
+Nous avons maintenant chargé avec succès un ensemble de données local dans BigQuery en quelques étapes. Ensuite, nous allons effectuer quelques transformations légères pour préparer nos données de différentes manières.
