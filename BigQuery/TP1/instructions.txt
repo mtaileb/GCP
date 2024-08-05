@@ -1,0 +1,9 @@
+Considérez-vous comme le responsable de l'analyse des données pour l'entreprise décrite dans ce scénario. 
+Votre entreprise développe un service pour réduire l'utilisation des téléphones portables par les utilisateurs 
+pendant la conduite. L'équipe de données de l'entreprise commence tout juste à intégrer des ensembles de données 
+pour aider les départements marketing et produit à mieux promouvoir le service et affiner le développement du produit. 
+En tant que première tentative pour identifier les sources de données susceptibles de fournir des informations utiles, 
+l'équipe de données décide de commencer par les données de collisions de Los Angeles. Elle tentera de trouver des 
+modèles autour de certaines caractéristiques démographiques des conducteurs. Cela tentera de valider certains des plans 
+de l'équipe marketing, tels que se concentrer sur les jeunes conducteurs, ainsi que certaines des fonctionnalités de 
+l'équipe d'ingénierie qui sont en cours de développement.
