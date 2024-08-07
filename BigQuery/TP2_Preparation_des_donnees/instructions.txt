@@ -1,3 +1,5 @@
+But: déterminer à partir du jeu de données le nombre d'accidents par âge et zone géographique
+
 Après avoir chargé les données dans le TP précédent, nous allons maintenant créer une table plus petite et plus spécifique (individus entre 16 et 18 ans) à partir de la table d'origine, en utilisant CREATE TABLE.
 Cette table plus petite nous permettra de concevoir et tester les transformations à moindre coût, avant de les appliquer à toute la table.
 Dans l'éditeur de requêtes de l'espace de travail SQL, entrez la requête suivante :
