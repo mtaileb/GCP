@@ -1,4 +1,4 @@
-Considérez-vous comme le responsable de l'analyse des données pour l'entreprise décrite dans ce scénario. 
+Vous êtes le responsable de l'analyse des données pour l'entreprise décrite dans ce scénario. 
 Votre entreprise développe un service pour réduire l'utilisation des téléphones portables par les utilisateurs 
 pendant la conduite. L'équipe de données de l'entreprise commence tout juste à intégrer des ensembles de données 
 pour aider les départements marketing et produit à mieux promouvoir le service et affiner le développement du produit. 
