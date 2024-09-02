@@ -1,31 +1,32 @@
 But: déterminer à partir du jeu de données le nombre d'accidents par âge et zone géographique
 
-Après avoir chargé les données dans le TP précédent, nous allons maintenant créer une table plus petite et plus spécifique (individus entre 16 et 18 ans) à partir de la table d'origine, en utilisant CREATE TABLE.
-Cette table plus petite nous permettra de concevoir et tester les transformations à moindre coût, avant de les appliquer à toute la table.
+Après avoir chargé les données dans le TP précédent, nous allons maintenant créer une table plus petite et plus spécifique
+(individus entre 16 et 18 ans) à partir de la table d'origine, en utilisant CREATE TABLE.
+Cette table plus petite nous permettra de concevoir et tester les transformations à moindre coût, avant de les appliquer à
+toute la table.
 Dans l'éditeur de requêtes de l'espace de travail SQL, entrez la requête suivante :
 
 ```sql
 CREATE TABLE collisions.demographic_1 AS (
-SELECT date_reported, date_occurred,
-time_occurred, area_name, crime_code,
-crime_code_description, victim_age,
-victim_sex, victim_descent, premise_code,
-premise_description, address, cross_street,
-location, zip_codes
-FROM `<votre nom de projet>.collisions.data`
-WHERE Victim_Age > 16
-AND Victim_Age <= 18
+SELECT `Date Reported`, `Date Occurred`,
+`Time Occurred`, `Area Name`, `Crime Code`,
+`Crime Code Description`, `Victim Age`,
+`Victim Sex`, `Victim Descent`, `Premise Code`,
+`Premise Description`, Address, `Cross Street`,
+Location, `Zip Codes`
+FROM `collisions.data`
+WHERE `Victim Age` > 16
+AND `Victim Age` <= 18
 );
 ```
-
-Remplacez `<votre nom de projet>` par le nom de votre projet réel.
+Note: Remplacez `<votre nom de projet>` par le nom de votre projet.
 En sortie, vous devriez avoir le message 'This statement created a new table named demographic_1'.
+Vous pouvez cliquer sur Go to table pour visualiser la table.
 
-Maintenant, calculons le nombre de collisions pour les variables victim_age et area_name:
+Maintenant, calculons le nombre de collisions pour les variables `Victim Age` et `Area Name`:
 ```sql
-SELECT victim_age, area_name, COUNT(*) as total_accidents FROM ` <your
-project name>.collisions.data`
-WHERE victim_age is not NULL
-GROUP BY victim_age, area_name
-ORDER BY victim_age asc
+SELECT `Victim Age`, `Area Name`, COUNT(*) as total_accidents FROM `collisions.data`
+WHERE `Victim Age` is not NULL
+GROUP BY `Victim Age`, `Area Name`
+ORDER BY `Victim Age` asc
 ```
