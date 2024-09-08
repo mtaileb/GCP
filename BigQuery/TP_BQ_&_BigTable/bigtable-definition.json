@@ -1,0 +1,27 @@
+{
+  "sourceFormat": "BIGTABLE",
+  "sourceUris": [
+    "https://googleapis.com/bigtable/projects/formationbigquery-429112/instances/instance-formation-bq/tables/logs-table"
+  ],
+  "bigtableOptions": {
+    "columnFamilies": [
+      {
+        "familyId": "sales",
+        "columns": [
+          {
+            "qualifierString": "itemid",
+            "type": "STRING"
+          },
+          {
+            "qualifierString": "price",
+            "type": "STRING"
+          },
+          {
+            "qualifierString": "qty",
+            "type": "STRING"
+          }
+        ]
+      }
+    ]
+  }
+}
