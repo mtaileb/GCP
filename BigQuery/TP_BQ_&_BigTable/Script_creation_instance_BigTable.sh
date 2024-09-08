@@ -3,7 +3,7 @@
 INSTANCE=instance-formation-bq
 
 # 1. create instance
-gcloud bigtable instances create $INSTANCE --cluster=bqbook-cluster --cluster-zone=us-central1-a --display-name=$INSTANCE --instance-type=DEVELOPMENT
+gcloud bigtable instances create $INSTANCE --cluster=mon-cluster --cluster-zone=us-central1-a --display-name=$INSTANCE --instance-type=DEVELOPMENT
 
 # 2. create table and column family called sales
 cbt -instance $INSTANCE createtable logs-table
