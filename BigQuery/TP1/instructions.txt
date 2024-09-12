@@ -24,7 +24,7 @@ Les données brutes sont disponibles au lien précédent. Pour plus de commodit�
    ```sh
    cd GCP/BigQuery/TP1
    ```
-5. Décompressez le fichier archive.zip :
+5. Décompressez le fichier .zip :
    ```sh
    unzip traffic-collision-data-from-2010-to-present.zip
    ```
