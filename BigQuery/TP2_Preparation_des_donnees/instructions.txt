@@ -6,7 +6,6 @@ Cette table plus petite nous permettra de concevoir et tester les transformation
 toute la table.
 Dans l'éditeur de requêtes de l'espace de travail SQL, entrez la requête suivante :
 
-```sql
 CREATE TABLE collisions.demographic_1 AS (
 SELECT `Date Reported`, `Date Occurred`,
 `Time Occurred`, `Area Name`, `Crime Code`,
@@ -18,15 +17,15 @@ FROM `collisions.data`
 WHERE `Victim Age` > 16
 AND `Victim Age` <= 18
 );
-```
+
 Note: Remplacez `<votre nom de projet>` par le nom de votre projet.
 En sortie, vous devriez avoir le message 'This statement created a new table named demographic_1'.
 Vous pouvez cliquer sur Go to table pour visualiser la table.
 
 Maintenant, calculons le nombre de collisions pour les variables `Victim Age` et `Area Name`:
-```sql
+
 SELECT `Victim Age`, `Area Name`, COUNT(*) as total_accidents FROM `collisions.data`
 WHERE `Victim Age` is not NULL
 GROUP BY `Victim Age`, `Area Name`
 ORDER BY `Victim Age` asc
-```
+
