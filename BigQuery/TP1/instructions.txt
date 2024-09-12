@@ -32,7 +32,7 @@ Les données brutes sont disponibles au lien précédent. Pour plus de commodit�
    ```sh
    zless traffic-collision-data-from-2010-to-present.csv
    ```
-7. Créez maintenant un ensemble de données et une table pour nos données :
+7. Créez maintenant un jeu de données et une table pour nos données :
    ```sh
    bq mk collisions
    bq mk -t collisions.data
