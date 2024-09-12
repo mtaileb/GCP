@@ -15,10 +15,7 @@ Chargeons ces données dans BigQuery pour voir si cet ensemble de données offre
 Les données brutes sont disponibles au lien précédent. Pour plus de commodité, nous les avons également disponibles dans archive.zip. L'outil de ligne de commande bq fournit une approche terminal pour interagir avec BigQuery et vos ressources Google Cloud. Tout ce que vous faites avec l'outil bq, vous pouvez également le faire avec l'API REST ou dans la console Cloud :
 
 1. Ouvrez Cloud Shell dans votre navigateur en visitant https://console.cloud.google.com/cloudshell.
-2. Autorisez Cloud Shell et assurez-vous que vous êtes dans le projet correct. Sélectionnez également la zone régionale par défaut pour vos ressources :
-   ```sh
-   gcloud init
-   ```
+2. Autorisez Cloud Shell et assurez-vous que vous êtes dans le projet correct.
 3. Une fois votre projet sélectionné, clonez le référentiel GitHub :
    ```sh
    git clone https://github.com/mtaileb/GCP.git
