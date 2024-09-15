@@ -1,0 +1,41 @@
+-- Création de la table avec des doublons:
+CREATE OR REPLACE TABLE `dataset.matable` (
+  product_id INT64,
+  product_name STRING,
+  price FLOAT64
+);
+
+-- Insertion de données avec des doublons:
+INSERT INTO `dataset.matable` (product_id, product_name, price)
+VALUES
+  (1, 'Product A', 10.0),
+  (2, 'Product B', 15.0),
+  (1, 'Product A', 10.0),  -- Doublon
+  (3, 'Product C', 20.0),
+  (2, 'Product B', 15.0),  -- Doublon
+  (4, 'Product D', 25.0);
+
+-- Visualisation des données avant déduplication (les produits 1 & 2 apparaissent deux fois):
+SELECT * FROM `dataset.matable`;
+
+-- Suppression des doublons: comme dans BigQuery on ne peut pas effectuer d'opération DELETE, on va créer une table temporaire pour y mettre les données dédupliquées, puis on copiera cette table dans la table d'origine:
+CREATE TABLE `dataset.matable_dedupliquee` AS
+WITH RankedRows AS (
+  SELECT *,
+         ROW_NUMBER() OVER (PARTITION BY product_id, product_name ORDER BY product_id) AS row_num
+  FROM `dataset.matable`
+)
+SELECT *
+FROM RankedRows
+WHERE row_num = 1;
+
+-- Visdualisation:
+SELECT * FROM `dataset.matable_dedupliquee`;
+
+-- Remplacer la table originale avec les données dédupliquées:
+CREATE OR REPLACE TABLE `dataset.matable` AS
+SELECT *
+FROM `dataset.matable_dedupliquee`;
+
+-- Visdualisation:
+SELECT * FROM `dataset.matable`;
