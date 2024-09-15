@@ -1,0 +1,15 @@
+CREATE OR REPLACE TABLE dataset.products (
+  product_id INT64,
+  product_name STRING,
+  category STRING
+);
+
+INSERT INTO dataset.products (product_id, product_name, category)
+VALUES
+  (101, 'Laptop', 'Electronics'),
+  (102, 'Smartphone', 'Electronics'),
+  (103, 'Headphones', 'Accessories'),
+  (104, 'Tablet', 'Electronics'),
+  (105, 'Monitor', 'Electronics'),
+  (106, 'Keyboard', 'Accessories'),
+  (107, 'Mouse', 'Accessories');
